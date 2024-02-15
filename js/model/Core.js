@@ -767,7 +767,8 @@ define
                         console.log ("***Warning*** rdf:ID !== mRID [" + obj.id + " !== " + obj.mRID + "]");
                     else
                         print ("***Warning*** rdf:ID !== mRID [" + obj.id + " !== " + obj.mRID + "]");
-                    obj.id = obj.mRID;
+                    // obj.id = obj.mRID;
+                    obj.mRID = obj.id;
                 }
                 let bucket = context.parsed.IdentifiedObject;
                 if (null == bucket)
