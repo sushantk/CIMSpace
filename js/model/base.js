@@ -344,6 +344,7 @@ define
             {
                 const ret = { cls: "Element" };
                 parse_attribute (/rdf:ID=(["'])([\s\S]*?)\1/g, ret, "id", sub, context);
+                parse_attribute (/rdf:about=(["'])([\s\S]*?)\1/g, ret, "id", sub, context);
                 if ("undefined" == typeof (ret.id))
                 {
                     UNIQUE_NUMBER++;
