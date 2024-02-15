@@ -350,6 +350,7 @@ define
                     UNIQUE_NUMBER++;
                     ret.id = "element_" + UNIQUE_NUMBER;
                 }
+                ret.id = ret.id.replace("urn:uuid:", "");
                 let elements = context.parsed.Element;
                 if (null == elements)
                     context.parsed.Element = elements = {};
