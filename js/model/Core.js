@@ -1699,6 +1699,8 @@ define
                 base.parse_attributes (/<cim:PowerSystemResource.ConfigurationEvent\s+rdf:resource\s*?=\s*?(["'])([\s\S]*?)\1\s*?\/>/g, obj, "ConfigurationEvent", sub, context);
                 base.parse_attributes (/<cim:PowerSystemResource.GenericAction\s+rdf:resource\s*?=\s*?(["'])([\s\S]*?)\1\s*?\/>/g, obj, "GenericAction", sub, context);
                 base.parse_attribute (/<cim:PowerSystemResource.Location\s+rdf:resource\s*?=\s*?(["'])([\s\S]*?)\1\s*?\/>/g, obj, "Location", sub, context);
+                base.parse_attribute (/<cim:PowerSystemResource.Location>\s+<cim:Location\s+rdf:about\s*?=\s*?(["'])([\s\S]*?)\1\s*?\/>\s+<\/cim:PowerSystemResource.Location>/g, obj, "Location", sub, context);
+                
                 let bucket = context.parsed.PowerSystemResource;
                 if (null == bucket)
                    context.parsed.PowerSystemResource = bucket = {};
