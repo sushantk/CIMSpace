@@ -2186,8 +2186,11 @@ define
                 obj.cls = "PositionPoint";
                 base.parse_element (/<cim:PositionPoint.groupNumber>([\s\S]*?)<\/cim:PositionPoint.groupNumber>/g, obj, "groupNumber", base.to_string, sub, context);
                 base.parse_element (/<cim:PositionPoint.sequenceNumber>([\s\S]*?)<\/cim:PositionPoint.sequenceNumber>/g, obj, "sequenceNumber", base.to_string, sub, context);
-                base.parse_element (/<cim:PositionPoint.xPosition>([\s\S]*?)<\/cim:PositionPoint.xPosition>/g, obj, "xPosition", base.to_string, sub, context);
-                base.parse_element (/<cim:PositionPoint.yPosition>([\s\S]*?)<\/cim:PositionPoint.yPosition>/g, obj, "yPosition", base.to_string, sub, context);
+                //base.parse_element (/<cim:PositionPoint.xPosition>([\s\S]*?)<\/cim:PositionPoint.xPosition>/g, obj, "xPosition", base.to_string, sub, context);
+                //base.parse_element (/<cim:PositionPoint.yPosition>([\s\S]*?)<\/cim:PositionPoint.yPosition>/g, obj, "yPosition", base.to_string, sub, context);
+                // Reverse x and y to fix wgs84 ordering issue
+                base.parse_element (/<cim:PositionPoint.xPosition>([\s\S]*?)<\/cim:PositionPoint.xPosition>/g, obj, "yPosition", base.to_string, sub, context);
+                base.parse_element (/<cim:PositionPoint.yPosition>([\s\S]*?)<\/cim:PositionPoint.yPosition>/g, obj, "xPosition", base.to_string, sub, context);
                 base.parse_element (/<cim:PositionPoint.zPosition>([\s\S]*?)<\/cim:PositionPoint.zPosition>/g, obj, "zPosition", base.to_string, sub, context);
                 base.parse_attribute (/<cim:PositionPoint.Location\s+rdf:resource\s*?=\s*?(["'])([\s\S]*?)\1\s*?\/>/g, obj, "Location", sub, context);
                 base.parse_attribute (/<cim:PositionPoint.Location>\s+<cim:Location\s+rdf:about\s*?=\s*?(["'])([\s\S]*?)\1\s*?\/>\s+<\/cim:PositionPoint.Location>/g, obj, "Location", sub, context);
